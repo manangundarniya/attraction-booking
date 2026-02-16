@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ApiPost } from '../api/API_data';
-import { API_Path } from '../api/APIComment';
 import Layout from '../components/Layout';
 import Button from '../components/Button';
 
