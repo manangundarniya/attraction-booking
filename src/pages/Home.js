@@ -23,8 +23,9 @@ const Home = () => {
         console.log("Combos =>", combosRes);
 
         // ✅ Extract array safely
-        const attractionsData = attractionsRes?.data || [];
-        const combosData = combosRes?.data || [];
+        // ✅ Extract array safely - API already unwraps response
+        const attractionsData = Array.isArray(attractionsRes) ? attractionsRes : (attractionsRes?.content || []);
+        const combosData = Array.isArray(combosRes) ? combosRes : (combosRes?.content || []);
 
         setFeaturedAttractions(attractionsData.slice(0, 4));
         setPopularCombos(combosData.slice(0, 3));
