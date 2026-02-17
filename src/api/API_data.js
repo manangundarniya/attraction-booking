@@ -1,6 +1,8 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "/api"; // Use relative path to trigger proxy (https://portal.parmartours.com/api/...)
+axios.defaults.baseURL = process.env.NODE_ENV === "production" && process.env.REACT_APP_BASE_URL 
+    ? `${process.env.REACT_APP_BASE_URL}/api` 
+    : "/api";
 
 const contentTypes = {
     json: "application/json",
